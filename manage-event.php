@@ -8,19 +8,12 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle text-center">
-      <p class="display-5">Welcome admin</p>
-      <hr>
-    </div><!-- End Page Title -->
-
     <section class="section dashboard">
       <div class="row">
 
       <div class="col-md-12">
           <h3 class="text-center">Manage Event</h3>
-          <p class=" text-end">
-          <a href="add-event.php" class="btn btn-primary">Add new</a>
-          </p>
+          
           <table class="table table-bordered">
             <tr>
               <th>Sr.No.</th>
