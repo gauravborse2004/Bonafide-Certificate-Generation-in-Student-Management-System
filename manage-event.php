@@ -39,7 +39,7 @@
                     <td>' . $row["Title"] . '</td>
                     <td>' . $row["Description"] . '</td>
                     <td>' . $row["Date"] . '</td>
-                    <td>' . $row["Form"] . '</td>
+                    <td><a href="'.$row["Form"] .'">Click Here!</a></td>
                     <td>' . $row["Template"] . '</td>
                     <td><a href="#" class="btn btn-warning">Update</a></td>
                     <td>
