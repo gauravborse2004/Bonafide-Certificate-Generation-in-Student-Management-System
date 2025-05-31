@@ -42,9 +42,7 @@
                     <td><a href="'.$row["Form"] .'">Click Here!</a></td>
                     <td>' . $row["Template"] . '</td>
                     <td><a href="#" class="btn btn-warning">Update</a></td>
-                    <td>
-                      <button class="btn btn-danger" onclick="deleteEvent(' . $row["event_id"] . ')">Delete</button>
-                    </td>
+                    <td><a href="#" class="btn btn-danger">Delete</a></td>
                   </tr>
                   ';
                 }

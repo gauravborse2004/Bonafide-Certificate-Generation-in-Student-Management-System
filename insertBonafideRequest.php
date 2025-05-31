@@ -62,7 +62,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Request Submitted Successfully');
-                        window.location.href='viewRequest-bonafide.php';
+                        window.location.href='manageViewRequest-bonafide.php';
                     </script>
                     ";
                 }
@@ -71,7 +71,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Something went wrong');
-                        window.location.href='home.php.html';
+                        window.location.href='home.php';
                     </script>
                     ";
                 }
@@ -81,7 +81,7 @@
                 echo "
                 <script type='text/javascript'>
                     alert('Please fill the form');
-                    window.location.href='home.php.html';
+                    window.location.href='home.php';
                 </script>
                 ";
             }
@@ -91,7 +91,7 @@
             echo "
                 <script type='text/javascript'>
                     alert('Please fill the form properly.');
-                    window.location.href='home.php.html';
+                    window.location.href='home.php';
                 </script>
             ";
         } 

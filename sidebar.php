@@ -116,7 +116,7 @@
         </a>
       </li>
       <li>
-        <a href="viewRequest-bonafide.php">
+        <a href="manageViewRequest-bonafide.php">
           <i class="bi bi-circle"></i><span>View Request</span>
         </a>
       </li>

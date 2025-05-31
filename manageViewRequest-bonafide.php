@@ -28,7 +28,7 @@
             <?php
               include("connection.php");
 
-              $sql = "SELECT * FROM requestBonafide";
+              $sql = "SELECT * FROM requestbonafide";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
                 $count = 1;
@@ -41,8 +41,29 @@
                     <td>' . $row["DOB"] . '</td>
                     <td>' . $row["Reason"] . '</td>
                     <td>' . $row["Photo"] . '</td>
-                    <td><a href="#" class="btn btn-warning">Approve</a></td>
-                    <td><a href="#" class="btn btn-danger">Reject</a></td>
+                    ';
+
+                    if($row["Request"]=="Approved")
+                    {
+                       echo'
+                      <td><a href="#"  class="btn btn-success disabled">Approved</a></td>
+                      <td><a href="#"  class="btn btn-success disabled">Reject</a></td>
+                    ';     
+                    }
+                    elseif($row["Request"]=="Rejected")
+                    {
+                       echo'
+                      <td><a href="#"  class="btn btn-danger disabled">Approve</a></td>
+                      <td><a href="#"  class="btn btn-danger disabled">Rejected</a></td>
+                    ';     
+                    }
+                    else{
+                    echo'
+                    <td><a href="manageBonafide-update.php?myVar='. $row["Name"] .'" class="btn btn-warning">Approve</a></td>
+                    <td><a href="manageBonafide-reject.php?myVar='. $row["Name"] .'" class="btn btn-danger">Reject</a></td>';
+                    }
+
+                    echo'
                   </tr>
                   ';
                 }
