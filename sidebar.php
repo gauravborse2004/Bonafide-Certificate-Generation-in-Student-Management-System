@@ -111,12 +111,12 @@
     </a>
     <ul id="component-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
       <li>
-        <a href="add-notification.php">
+        <a href="request-bonafide.php">
           <i class="bi bi-circle"></i><span>Request Bonafide</span>
         </a>
       </li>
       <li>
-        <a href="manage-notification.php">
+        <a href="viewRequest-bonafide.php">
           <i class="bi bi-circle"></i><span>View Request</span>
         </a>
       </li>

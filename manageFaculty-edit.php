@@ -25,7 +25,7 @@ if($result->num_rows>0)
     $spe = $row["Specialization"];
     $ach = $row["Achievements"];
     $address = $row["Address"]; 
-    $photo = $row["photo"];
+    $photo = $row["Photo"];
  }
 }
 else{
