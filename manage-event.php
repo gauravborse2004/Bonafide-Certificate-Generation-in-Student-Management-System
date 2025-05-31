@@ -27,14 +27,15 @@
               <th>Title</th>
               <th>Description</th>              
               <th>Date</th>   
-              <th>Cover</th>   
-              <th>View/Update</th>
+              <th>Link</th>
+              <th>Template</th> 
+              <th>Update</th>
               <th>Delete</th>
             </tr>
             <?php
               include("connection.php");
 
-              $sql = "SELECT * FROM events";
+              $sql = "SELECT * FROM event";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
                 $count = 1;
@@ -42,10 +43,11 @@
                   echo '
                   <tr>
                     <td>' . $count++ . '</td>
-                    <td>' . $row["eventTitle"] . '</td>
-                    <td>' . $row["eventDescription"] . '</td>
-                    <td>' . $row["eventDate"] . '</td>
-                    <td>' . $row["eventCover"] . '</td>
+                    <td>' . $row["Title"] . '</td>
+                    <td>' . $row["Description"] . '</td>
+                    <td>' . $row["Date"] . '</td>
+                    <td>' . $row["Form"] . '</td>
+                    <td>' . $row["Template"] . '</td>
                     <td><a href="#" class="btn btn-warning">Update</a></td>
                     <td>
                       <button class="btn btn-danger" onclick="deleteEvent(' . $row["event_id"] . ')">Delete</button>

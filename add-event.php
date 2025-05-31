@@ -8,32 +8,37 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle text-center">
-      <p class="display-5">Welcome admin</p>
-      <hr>
-    </div><!-- End Page Title -->
-
     <section class="section dashboard">
       <div class="row">
         <div class="col-md-6 mx-auto bg-white p-5">
           <div id="responseEvent" class="text-success"></div>
           <h3 class="text-center">Add Events</h3>
-          <form id="addEventForm" enctype="multipart/form-data">
+          <form id="addEventForm" action="insertEvent.php" method="POST" enctype="multipart/form-data">
+
               <label for="">Add Event Title</label>
-              <input type="text" name="eventTitle" placeholder="" class="form-control">
+              <input type="text" name="title" placeholder="" class="form-control">
               <br>
+
               <label for="">Event Description</label>
-              <textarea name="eventDescription" rows="10" cols="10" wrap="soft" class="form-control"> </textarea>
+              <textarea name="desc" rows="5" cols="10" wrap="soft" class="form-control"> </textarea>
               <br>
+
               <label for="">Event Date</label>
-              <input name="eventDate" type="date" class="form-control">
+              <input name="dob" type="date" class="form-control">
               <br>
-              <label for="">Cover Image</label>
-              <input type="file" name="eventCover" class="form-control">
+
+              <label for="">Add Event Form Link</label>
+              <input type="text" name="reg" placeholder="" class="form-control">
               <br>
+
+              <label for="">Event Template</label>
+              <input type="file" name="fileToUpload" class="form-control">
+              <br>
+
+              <input type="submit" class="btn btn-primary" name="submit" value="Submit">
               
-              <button type="button" class="btn btn-primary" onclick="addEventForm()">Submit</button>
               <a href="manage-event.php" class="btn btn-outline-primary">View All</a>
+
           </form>
         </div>
       </div>

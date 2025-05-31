@@ -1,44 +1,97 @@
 <?php
-   include("connection.php");
-  
-// Prepare SQL statement using parameterized queries
-$stmt = $conn->prepare("INSERT INTO events (eventTitle, eventDescription, eventDate, eventCover) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $eventTitle, $eventDescription, $eventDate, $eventCover);
+    include("connection.php");
 
-// Sanitize input data
-$eventTitle = $_POST['eventTitle'];
-$eventDescription = $_POST['eventDescription'];
-$eventDate = $_POST['eventDate'];
+    if(isset($_POST["submit"]))
+    {
+         // File Upload Setup
+         $target_dir = "uploads/events/";
+         $target_file = $target_dir . time(). basename($_FILES["fileToUpload"]["name"]); //time() to get microsecond time
+         $uploadOk = 1;
+         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+ 
+         // Check if file is an actual image
+         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+         if ($check !== false) {
+             echo "File is an image - " . $check["mime"] . ".<br>";
+             $uploadOk = 1;
+         } else {
+             echo "File is not an image.<br>";
+             $uploadOk = 0;
+         }
+ 
+         // Check if file already exists
+         if (file_exists($target_file)) {
+             echo "Sorry, file already exists.<br>";
+             $uploadOk = 0;
+         }
+ 
+         // Check file size (limit: ~500KB)
+         if ($_FILES["fileToUpload"]["size"] > 500000) {
+             echo "Sorry, your file is too large.<br>";
+             $uploadOk = 0;
+         }
+ 
+         // Allow specific file formats
+         if (
+             $imageFileType != "jpg" && $imageFileType != "png" &&
+             $imageFileType != "jpeg" && $imageFileType != "gif"
+         ) {
+             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
+             $uploadOk = 0;
+         }
 
-// Handle file upload separately
-$target_dir = "events/"; // Adjust the target directory
-$target_file = $target_dir . basename($_FILES["eventCover"]["name"]);
+         // If everything is okay, try uploading
+        if ($uploadOk == 1) {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.<br>";
 
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    exit();
-}
+                $photo = time(). basename($_FILES["fileToUpload"]["name"]);
 
-// Check file size
-if ($_FILES["eventCover"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    exit();
-}
+                $title = $_POST["title"];
+                $desc = $_POST["desc"];
+                $date = $_POST["dob"];
+                $reg = $_POST["reg"];
+    
+                $myQuery = $conn->prepare("INSERT INTO event(Title,Description,Date,Form,Template) VALUES(?,?,?,?,?)");
+    
+                $myQuery->bind_param("sssss", $title, $desc, $date, $reg, $photo);
 
-// Upload file
-if (move_uploaded_file($_FILES["eventCover"]["tmp_name"], $target_file)) {
-    // File uploaded successfully, proceed with database insertion
-    $eventCover = $_FILES['eventCover']['name'];
-    if ($stmt->execute()) {
-        echo "Event added successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-} else {
-    echo "Sorry, there was an error uploading your file.";
-}
+                if( $myQuery->execute() == TRUE)
+                {
+                    echo "
+                    <script type='text/javascript'>
+                        alert('Event Added Successfully');
+                        window.location.href='manage-event.php';
+                    </script>
+                    ";
+                }
+                else
+                {
+                    echo "
+                    <script type='text/javascript'>
+                        alert('Something went wrong');
+                        window.location.href='add-event.php';
+                    </script>
+                    ";
+                }
+            }
+            else
+            {
+                echo "
+                <script type='text/javascript'>
+                    alert('Please fill the form');
+                    window.location.href='add-event.php';
+                </script>
+                ";
+            }
 
-$stmt->close();
-$conn->close();   
+            }
+        } else {
+            echo "
+                <script type='text/javascript'>
+                    alert('Please fill the form properly.');
+                    window.location.href=add-event.php';
+                </script>
+            ";
+        } 
 ?>

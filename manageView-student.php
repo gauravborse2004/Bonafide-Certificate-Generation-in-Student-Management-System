@@ -13,7 +13,8 @@
                
         <?php
             include("connection.php");
-            $myQuery = "SELECT * FROM studentdata";
+            $myVar = $_GET["myVar"];
+            $myQuery = "SELECT * FROM studentdata  where PRN='".$myVar."'";
             $result = $conn->query($myQuery);
             if( $result->num_rows > 0)
             {

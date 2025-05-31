@@ -13,7 +13,8 @@
                
         <?php
             include("connection.php");
-            $myQuery = "SELECT * FROM facultydata";
+            $myVar = $_GET["myVar"];
+            $myQuery = "SELECT * FROM facultydata where Email='.$myVar.'";
             $result = $conn->query($myQuery);
             if( $result->num_rows > 0)
             {
