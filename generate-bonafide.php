@@ -25,9 +25,9 @@ if (!$row) {
     die("Request not found");
 }   
 
-// Check if approved
-if ($row['Request'] !== 'approved') {
-    die("This bonafide certificate has not been approved");
+if($row !== "Approved")
+{
+    die("Bonafide certificate is not approved yet!")
 }
 
 // Create PDF
