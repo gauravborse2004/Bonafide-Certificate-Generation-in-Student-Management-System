@@ -47,15 +47,17 @@
 
                 $photo = time(). basename($_FILES["fileToUpload"]["name"]);
 
+                $prn = $_POST["prn"];
                 $name = $_POST["fname"];
                 $class = $_POST["class"];
+                $email = $_POST["email"];
                 $dob = $_POST["dob"];
                 $reason = $_POST["reason"];
                 $status = "Pending";
     
-                $myQuery = $conn->prepare("INSERT INTO requestBonafide(Name,Class,DOB,Reason,Request,Photo) VALUES(?,?,?,?,?,?)");
+                $myQuery = $conn->prepare("INSERT INTO requestBonafide(PRN,Name,Class,Email,DOB,Reason,Request,Photo) VALUES(?,?,?,?,?,?,?,?)");
     
-                $myQuery->bind_param("ssssss", $name, $class, $dob, $reason, $status, $photo);
+                $myQuery->bind_param("ssssssss", $prn, $name, $class, $email, $dob, $reason, $status, $photo);
 
                 if( $myQuery->execute() == TRUE)
                 {

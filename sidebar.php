@@ -120,6 +120,11 @@
           <i class="bi bi-circle"></i><span>View Request</span>
         </a>
       </li>
+      <li>
+        <a href="generate-bonafide.php">
+          <i class="bi bi-circle"></i><span>Download</span>
+        </a>
+      </li>
       
     </ul>
   </li>

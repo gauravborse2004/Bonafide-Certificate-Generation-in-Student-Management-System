@@ -6,7 +6,7 @@ include("connection.php");
 $user = $_SESSION["userLogin"];
 
 $myQuery= "SELECT * FROM studentdata
-WHERE PRN='".$user."'";
+WHERE Email='".$user."'";
 
 $result= $conn->query($myQuery);
 
@@ -56,6 +56,8 @@ else{
 
                     <h3>Fill the Details Below</h3>
 
+                    <input type="number" name="prn" placeholder="Enter Your PRN" class="form-control mt-2" value="<?php echo $prn; ?>" required>
+
                     <input type="text" name="fname" placeholder="Enter Your Fullname" class="form-control mt-2" value="<?php echo $fullname; ?>">
 
                     <div class="form-control mt-2">
@@ -69,6 +71,8 @@ else{
                             <option value="B.Tech" <?php if($class=="B.Tech") echo 'selected="selected"'; ?>>B.Tech</option>
                         </select>
                     </div>
+
+                    <input type="text" name="email" placeholder="Enter Your Email" class="form-control mt-2" value="<?php echo $email; ?>">
 
                     <div class="form-control mt-2">
                         Enter Your DOB: 

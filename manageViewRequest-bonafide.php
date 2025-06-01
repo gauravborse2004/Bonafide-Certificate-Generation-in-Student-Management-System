@@ -17,8 +17,10 @@
           <table class="table table-bordered">
             <tr>
               <th>Sr.No.</th>
+              <th>PRN</th> 
               <th>Name</th>
-              <th>Class</th>              
+              <th>Class</th>
+              <th>Email</th>           
               <th>DOB</th>   
               <th>Reason</th>
               <th>Application</th> 
@@ -36,8 +38,10 @@
                   echo '
                   <tr>
                     <td>' . $count++ . '</td>
+                    <td>' . $row["PRN"] . '</td>
                     <td>' . $row["Name"] . '</td>
                     <td>' . $row["Class"] . '</td>
+                    <td>' . $row["Email"] . '</td>
                     <td>' . $row["DOB"] . '</td>
                     <td>' . $row["Reason"] . '</td>
                     <td>' . $row["Photo"] . '</td>
