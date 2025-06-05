@@ -22,18 +22,26 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
 if (!$row) {
-    die("Request not found");
+    echo "
+    <script type='text/javascript'>
+        alert('Request not found');
+        window.location.href='home.php';
+    </script>
+    ";
 }   
 
-if($row !== "Approved")
-{
-    die("Bonafide certificate is not approved yet!")
-}
+// if($row !== "Approved")
+// {
+//     die("Bonafide certificate is not approved yet!");
+// }
 
 // Create PDF
 $pdf = new FPDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial', 'B', 16);
+$pdf->SetFont('Arial', 'B', 12);
+
+$date = isset($row['approval_date']) ? date('d-m-Y', strtotime($row['approval_date'])) : date('d-m-Y');
+$pdf->Cell(0, 10, 'Date: ' . $date, 0, 1, 'R');
 
 // College Header
 $pdf->Cell(0, 10, 'CSMSS Chh Shahu College of Engineering', 0, 1, 'C');
@@ -49,7 +57,7 @@ $pdf->Ln(10);
 
 // Content
 $pdf->SetFont('Arial', '', 12);
-$content = 'This is to certify that Mr./Ms. ' . $row["Name"] . ' is a bonafide student of this college studying B.Tech ' . $row["Class"] . ' (Artificial Intelligence and Data Science) during the academic year 2024-2025. His/Her date of birth as per college register is ' . $row["DOB"] . '.';
+$content = 'This is to certify that ' . $row["Name"] . ' is a bonafide student of this college studying B.Tech ' . $row["Class"] . ' (Artificial Intelligence and Data Science) during the academic year 2024-2025. His/Her date of birth as per college register is ' . $row["DOB"] . '.';
 $pdf->MultiCell(0, 8, $content, 0, 'L');
 $pdf->Ln(8);
 $pdf->MultiCell(0, 8, 'This certificate is issued for the purpose of ' . $row["Reason"] . '.', 0, 'L');
@@ -69,8 +77,6 @@ $pdf->Cell(95, 5, '(' . $facultyName . ')', 0, 1, 'C');
 
 // Date
 $pdf->Ln(15);
-$date = isset($row['approval_date']) ? date('d-m-Y', strtotime($row['approval_date'])) : date('d-m-Y');
-$pdf->Cell(0, 10, 'Date: ' . $date, 0, 1, 'R');
 
 // Output PDF
 $pdf->Output('D', 'Bonafide_Certificate_' . $row["Name"] . '.pdf');
