@@ -30,56 +30,67 @@ if (!$row) {
     ";
 }   
 
-// if($row !== "Approved")
-// {
-//     die("Bonafide certificate is not approved yet!");
-// }
+if($row["Request"] !== "Approved")
+{
+    echo "
+    <script type='text/javascript'>
+        alert('Bonafide certificate is not Approved yet!');
+        window.location.href='home.php';
+    </script>
+    ";
+}
 
 // Create PDF
 $pdf = new FPDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial', 'B', 12);
+$pdf->SetFont('Arial', '', 12);
 
-$date = isset($row['approval_date']) ? date('d-m-Y', strtotime($row['approval_date'])) : date('d-m-Y');
-$pdf->Cell(0, 10, 'Date: ' . $date, 0, 1, 'R');
+// Date and Ref
+$ref = 'Ref : CSCOE/Bonafide/2024';
+$date = isset($row['approval_date']) ? date('d/m/Y', strtotime($row['approval_date'])) : date('d/m/Y');
+$pdf->Cell(0, 5, $ref, 0, 0, 'L');
+$pdf->Cell(0, 5, 'Date : ' . $date, 0, 1, 'R');
+$pdf->Ln(5);
 
 // College Header
-$pdf->Cell(0, 10, 'CSMSS Chh Shahu College of Engineering', 0, 1, 'C');
-$pdf->SetFont('Arial', '', 12);
-$pdf->Cell(0, 10, 'Affiliated to Dr. Babasaheb Ambedkar Technological University', 0, 1, 'C');
-$pdf->Cell(0, 10, 'Lonere, Raigad, Maharashtra 402103', 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell(0, 7, 'CSMSS', 0, 1, 'C');
+$pdf->Cell(0, 7, 'CHHATRAPATI SHAHU MAHARAJ SHIKSHAN SANSTHA\'s', 0, 1, 'C');
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->Cell(0, 10, 'CHH. SHAHU COLLEGE OF ENGINEERING', 0, 1, 'C');
+$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 6, 'Approved by AICTE New Delhi, DTE (Govt. of Maharashtra) and affiliated to Dr. B.A.T. University, Lonere', 0, 1, 'C');
+$pdf->Cell(0, 6, 'Kanchanwadi, Paithan Road, Chhatrapati Sambhajinagar 431 002 (M.S)', 0, 1, 'C');
+$pdf->Cell(0, 6, 'Ph. No. : (0240) 2379248, 2646463 Fax : (0240) 2379015', 0, 1, 'C');
+$pdf->Cell(0, 6, 'Email : shahuengg@gmail.com, principal@csmssengg.org   Website : www.csmssengg.org', 0, 1, 'C');
 $pdf->Ln(10);
 
 // Title
 $pdf->SetFont('Arial', 'B', 14);
 $pdf->Cell(0, 10, 'BONAFIDE CERTIFICATE', 0, 1, 'C');
-$pdf->Ln(10);
+$pdf->Ln(5);
 
 // Content
 $pdf->SetFont('Arial', '', 12);
-$content = 'This is to certify that ' . $row["Name"] . ' is a bonafide student of this college studying B.Tech ' . $row["Class"] . ' (Artificial Intelligence and Data Science) during the academic year 2024-2025. His/Her date of birth as per college register is ' . $row["DOB"] . '.';
+$content = "This is to certify that ";
+$content .= $pdf->SetFont('Arial', 'B', 12);
+$content .= $row["Name"];
+$content .= $pdf->SetFont('Arial', '', 12);
+$content .= " is a bonafide student of this college studying in B.Tech Third Year (Artificial Intelligence & Data Science) during the academic year 2024-2025. His/Her date of birth as per college register is " . $row["DOB"] . ".";
 $pdf->MultiCell(0, 8, $content, 0, 'L');
-$pdf->Ln(8);
-$pdf->MultiCell(0, 8, 'This certificate is issued for the purpose of ' . $row["Reason"] . '.', 0, 'L');
+$pdf->Ln(5);
+
+$pdf->MultiCell(0, 8, 'His/Her conduct and progress is satisfactory to the best of my knowledge. He/She bears a good moral character. This certificate is issued for the purpose of ' . $row["Reason"] .'.', 0, 'L');
 $pdf->Ln(20);
 
-// Signatures
-$pdf->Cell(95, 10, 'Principal', 0, 0, 'C');
-$pdf->Cell(95, 10, 'Faculty In-Charge', 0, 1, 'C');
-$pdf->Ln(10);
-$pdf->Cell(95, 10, '___________________', 0, 0, 'C');
-$pdf->Cell(95, 10, '___________________', 0, 1, 'C');
-$pdf->Cell(95, 5, '(Seal)', 0, 0, 'C');
-
-// Check if faculty_name exists in the row before using it
-$facultyName = isset($row['faculty_name']) ? $row['faculty_name'] : 'Faculty In-Charge';
-$pdf->Cell(95, 5, '(' . $facultyName . ')', 0, 1, 'C');
-
-// Date
-$pdf->Ln(15);
+// Principal Signature
+$pdf->Cell(0, 10, 'Principal', 0, 1, 'R');
+$pdf->Ln(5);
+$pdf->Cell(0, 10, '_________________________', 0, 1, 'R');
 
 // Output PDF
 $pdf->Output('D', 'Bonafide_Certificate_' . $row["Name"] . '.pdf');
+
 
 // Close database connection
 $stmt->close();
