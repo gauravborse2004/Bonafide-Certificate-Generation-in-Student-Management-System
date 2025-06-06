@@ -71,7 +71,7 @@ else{
                     <div class="form-control mt-2">
                         Designation&nbsp;&nbsp;:&nbsp;&nbsp;
                         <select name="designation" class="p-1" placeholder="Select Your Designation">
-                            <option value="Head" <?php if($des=="Head") echo 'selected="selected"'; ?>>Head</option>
+                            <option value="Head." <?php if($des=="Head") echo 'selected="selected"'; ?>>Head</option>
                             <option value="Prof." <?php if($des=="Prof.") echo 'selected="selected"'; ?>>Professor</option>
                             <option value="Assistant Prof." <?php if($des=="Assistant Prof.") echo 'selected="selected"'; ?>>Assitant Professor</option>
                             <option value="Lecturer" <?php if($des=="Lecturer") echo 'selected="selected"'; ?>>Lecturer</option>

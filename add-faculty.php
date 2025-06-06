@@ -39,7 +39,7 @@
                             <div class="form-control mt-2">
                                 Designation&nbsp;&nbsp;:&nbsp;&nbsp;
                                 <select name="designation" class="p-1" placeholder="Select Your Designation">
-                                    <option value="Head">Head</option>
+                                    <option value="Head.">Head</option>
                                     <option value="Prof.">Professor</option>
                                     <option value="Assistant Prof.">Assitant Professor</option>
                                     <option value="Lecturer">Lecturer</option>
