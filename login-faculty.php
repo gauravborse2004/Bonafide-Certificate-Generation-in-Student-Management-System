@@ -11,9 +11,9 @@
     if( $result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
-        $pass2 = $row["password"];
+        $pass1 = $row["Password"];
 
-        if(  password_verify($pass, $pass2) )
+        if(  password_verify($pass, $pass1) )
         {
             $_SESSION["userLogin"] = $user;
 
