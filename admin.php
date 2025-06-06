@@ -4,16 +4,16 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    $myQuery = "SELECT * FROM facultydata WHERE Email = '".$user."'";
+    $myQuery = "SELECT * FROM admin WHERE email = '".$user."'";
 
     $result = $conn->query($myQuery);
 
     if( $result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
-        $pass2 = $row["Password"];
+        $pass2 = $row["password"];
 
-        if(  password_verify($pass, $pass2) )
+        if( $pass == $pass2)
         {
             $_SESSION["userLogin"] = $user;
 
@@ -24,7 +24,7 @@
             echo"
             <script type='text/javascript'>
                 alert('Wrong Password');
-                window.location.href='login-faculty.html';
+                window.location.href='admin.html';
             </script>";
         }
     }
@@ -33,7 +33,7 @@
         echo "
                 <script type='text/javascript'>
                     alert('Please signup');
-                    window.location.href='add-faculty.html';
+                    window.location.href='admin.html';
                 </script>
             ";
     }
