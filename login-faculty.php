@@ -4,7 +4,7 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    $myQuery = "SELECT * FROM studentdata WHERE Email = '".$user."'";
+    $myQuery = "SELECT * FROM facultydata WHERE Email = '".$user."'";
 
     $result = $conn->query($myQuery);
 
@@ -24,7 +24,7 @@
             echo"
             <script type='text/javascript'>
                 alert('Wrong Password');
-                window.location.href='login.html';
+                window.location.href='login-faculty.html';
             </script>";
         }
     }

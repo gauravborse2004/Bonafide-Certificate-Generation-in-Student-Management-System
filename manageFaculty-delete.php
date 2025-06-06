@@ -10,9 +10,9 @@
 
     include("connection.php");
 
-    $prn = $_GET["myVar"];
+    $email = $_GET["myVar"];
 
-    $myQuery = "DELETE FROM studentdata WHERE PRN = '".$prn."'";
+    $myQuery = "DELETE FROM facultydata WHERE Email = '".$email."'";
 
     if($conn->query($myQuery))
     {

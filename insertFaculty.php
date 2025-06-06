@@ -48,6 +48,7 @@
                 $photo_name = time(). basename($_FILES["fileToUpload"]["name"]);
 
                 $f_fname = $_POST["fname"];
+                $f_role = "Faculty";
                 $f_email = $_POST["email"];
                 $f_contact = $_POST["contact"];
                 $f_gender = $_POST["gender"];
@@ -62,9 +63,9 @@
     
                 $enc_password = password_hash($f_password, PASSWORD_DEFAULT); //encrypting password using hash
     
-                $myQuery = $conn->prepare("INSERT INTO facultydata(Name,Email,Contact,Gender,DOB,Designation,Qualification,totalExperience,Specialization,Achievements,Address,password,photo) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                $myQuery = $conn->prepare("INSERT INTO facultydata(Name,Role,Email,Contact,Gender,DOB,Designation,Qualification,totalExperience,Specialization,Achievements,Address,password,photo) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
     
-                $myQuery->bind_param("sssssssssssss", $f_fname, $f_email, $f_contact, $f_gender, $f_dob, $f_des, $f_qua, $f_exp, $f_spe, $f_ach, $f_address, $enc_password, $photo_name);
+                $myQuery->bind_param("ssssssssssssss", $f_fname, $f_role, $f_email, $f_contact, $f_gender, $f_dob, $f_des, $f_qua, $f_exp, $f_spe, $f_ach, $f_address, $enc_password, $photo_name);
 
                 if( $myQuery->execute() == TRUE)
                 {
