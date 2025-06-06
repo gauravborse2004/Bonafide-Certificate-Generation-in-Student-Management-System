@@ -77,8 +77,8 @@ if ( $result->num_rows > 0)
 
 <div class="d-flex align-items-center justify-content-between">
   <a href="index.html" class="logo d-flex align-items-center">
-    <img src="images/clg-logo.png" alt="">
-    <span class="d-none d-lg-block">SMS CSCOE</span>
+    <img src="images/clg-logo.png" alt="" class="m-3">
+    <span class="d-none d-lg-block">AI&DS Dept.</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
