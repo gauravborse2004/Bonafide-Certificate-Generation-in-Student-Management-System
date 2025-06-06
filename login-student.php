@@ -3,6 +3,8 @@
     include("connection.php");
     $user = $_POST["username"];
     $pass = $_POST["password"];
+    $role = "student";
+    // $role = $_POST["role"];
 
     $myQuery = "SELECT * FROM studentdata WHERE Email = '".$user."'";
 
@@ -17,7 +19,7 @@
         {
             $_SESSION["userLogin"] = $user;
 
-            header("Location: home.php");
+            header("Location: home.php?role=$role");
         }
         else
         {

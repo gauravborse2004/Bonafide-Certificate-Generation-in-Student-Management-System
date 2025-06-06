@@ -28,24 +28,6 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Faculty</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="add-faculty.php">
-            <i class="bi bi-circle"></i><span>Add faculty</span>
-          </a>
-        </li>
-        <li>
-          <a href="manage-faculty.php">
-            <i class="bi bi-circle"></i><span>Manage faculty</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Tables Nav -->
-
-    <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-journal-text"></i><span>Events</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
