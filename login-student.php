@@ -26,7 +26,7 @@
             echo"
             <script type='text/javascript'>
                 alert('Wrong Password');
-                window.location.href='login.html';
+                window.location.href='login-student.html';
             </script>";
         }
     }
