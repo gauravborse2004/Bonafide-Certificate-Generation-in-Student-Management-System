@@ -1,4 +1,8 @@
 <!-- ======= Sidebar ======= -->
+<?php
+$role = "student";
+?>
+
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
@@ -15,7 +19,7 @@
       </a>
       <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="add-event.php">
+          <a href="add-event.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Add-events</span>
           </a>
         </li>
