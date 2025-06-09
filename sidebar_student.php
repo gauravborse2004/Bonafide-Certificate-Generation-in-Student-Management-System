@@ -7,7 +7,7 @@ $role = "student";
 
   <ul class="sidebar-nav" id="sidebar-nav">
     <li class="nav-item">
-      <a class="nav-link " href="home.php">
+      <a class="nav-link " href="home.php?role=<?php echo $role ?>">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
@@ -24,7 +24,7 @@ $role = "student";
           </a>
         </li>
         <li>
-          <a href="manage-event.php">
+          <a href="manage-event.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Manage-events</span>
           </a>
         </li>
@@ -37,12 +37,12 @@ $role = "student";
       </a>
       <ul id="gallery-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="add-gallery.php">
+          <a href="add-gallery.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Add gallery</span>
           </a>
         </li>
         <li>
-          <a href="manage-gallery.php">
+          <a href="manage-gallery.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Manage gallery</span>
           </a>
         </li>
@@ -55,12 +55,12 @@ $role = "student";
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="add-notification.php">
+          <a href="add-notification.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Add notification</span>
           </a>
         </li>
         <li>
-          <a href="manage-notification.php">
+          <a href="manage-notification.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Manage notification</span>
           </a>
         </li>
@@ -73,13 +73,8 @@ $role = "student";
       </a>
       <ul id="component-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="request-bonafide.php">
+          <a href="request-bonafide.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Request Bonafide</span>
-          </a>
-        </li>
-        <li>
-          <a href="manageViewRequest-bonafide.php">
-            <i class="bi bi-circle"></i><span>View Request</span>
           </a>
         </li>
         <li>

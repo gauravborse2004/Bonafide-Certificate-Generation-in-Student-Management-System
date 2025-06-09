@@ -1,7 +1,19 @@
 
   <?php 
-    include("header.php"); 
-    include("sidebar.php");
+    include("header.php");
+   
+    if($_GET["role"] == "faculty")
+    {
+       include("sidebar_faculty.php");
+    }
+    elseif($_GET["role"] == "student")
+    {
+       include("sidebar_student.php");
+    }
+    else
+    {
+      include("sidebar.php");
+    }
   ?>
 
   <main id="main" class="main">
