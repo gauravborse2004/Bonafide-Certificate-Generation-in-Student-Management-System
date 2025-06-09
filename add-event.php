@@ -16,8 +16,6 @@
     }
   ?>
 
-  
-
   <main id="main" class="main">
 
     <section class="section dashboard">
@@ -49,7 +47,7 @@
 
               <input type="submit" class="btn btn-primary" name="submit" value="Submit">
               
-              <a href="manage-event.php" class="btn btn-outline-primary">View All</a>
+              <a href="manage-event.php?role=<?php echo $role ?>" class="btn btn-outline-primary">View All</a>
 
           </form>
         </div>

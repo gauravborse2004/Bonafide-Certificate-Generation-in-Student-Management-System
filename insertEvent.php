@@ -1,4 +1,5 @@
 <?php
+    $role = $_GET["role"];
     include("connection.php");
 
     if(isset($_POST["submit"]))
@@ -61,7 +62,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Event Added Successfully');
-                        window.location.href='manage-event.php';
+                        window.location.href='manage-event.php?role= $role';
                     </script>
                     ";
                 }
@@ -70,7 +71,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Something went wrong');
-                        window.location.href='add-event.php';
+                        window.location.href='add-event.php?role= $role';
                     </script>
                     ";
                 }
@@ -80,7 +81,7 @@
                 echo "
                 <script type='text/javascript'>
                     alert('Please fill the form');
-                    window.location.href='add-event.php';
+                    window.location.href='add-event.php?role= $role';
                 </script>
                 ";
             }
@@ -90,7 +91,7 @@
             echo "
                 <script type='text/javascript'>
                     alert('Please fill the form properly.');
-                    window.location.href=add-event.php';
+                    window.location.href=add-event.php?role= $role';
                 </script>
             ";
         } 
