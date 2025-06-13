@@ -14,7 +14,7 @@ if( !isset($_SESSION["userLogin"]))
 
 $user = $_SESSION["userLogin"];
 
-$myQuery = "SELECT * FROM studentdata WHERE Email='".$user."'";
+$myQuery = "SELECT * FROM admin WHERE email='".$user."'";
 
 $result = $conn->query($myQuery);
 
@@ -22,9 +22,8 @@ if ( $result->num_rows > 0)
 {
     $row = $result->fetch_assoc();
 
-    $prn = $row["PRN"];
-    $fullname = $row["fullName"];
-    $class = $row["Class"];
+    $email = $row["email"];
+    $fullname = $row["name"];
     $photo = $row["photo"];
 }
 
@@ -83,13 +82,6 @@ if ( $result->num_rows > 0)
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
 
-<div class="search-bar">
-  <form class="search-form d-flex align-items-center" method="POST" action="#">
-    <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-    <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-  </form>
-</div><!-- End Search Bar -->
-
 <nav class="header-nav ms-auto">
   <ul class="d-flex align-items-center">
 
@@ -106,7 +98,7 @@ if ( $result->num_rows > 0)
         <span class="badge bg-primary badge-number">4</span>
       </a><!-- End Notification Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+      <!-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
         <li class="dropdown-header">
           You have 4 new notifications
           <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -170,7 +162,7 @@ if ( $result->num_rows > 0)
           <a href="#">Show all notifications</a>
         </li>
 
-      </ul><!-- End Notification Dropdown Items -->
+      </ul>End Notification Dropdown Items -->
 
     </li><!-- End Notification Nav -->
 
@@ -181,7 +173,7 @@ if ( $result->num_rows > 0)
         <span class="badge bg-success badge-number">3</span>
       </a><!-- End Messages Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+      <!-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
         <li class="dropdown-header">
           You have 3 new messages
           <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -236,7 +228,7 @@ if ( $result->num_rows > 0)
           <a href="#">Show all messages</a>
         </li>
 
-      </ul><!-- End Messages Dropdown Items -->
+      </ul>End Messages Dropdown Items -->
 
     </li><!-- End Messages Nav -->
 
@@ -246,44 +238,13 @@ if ( $result->num_rows > 0)
 
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
         <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
-        <?php echo '<img src="uploads/student/'.$photo.'" alt="Profile" class="rounded">' ?>
+        <?php echo '<img src="uploads/admin/'.$photo.'" alt="Profile" class="rounded">' ?>
         <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $fullname ?></span>
       </a><!-- End Profile Iamge Icon -->
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
           <h6><?php echo $fullname ?></h6>
-          <span><?php echo $class ?></span>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href='manageView-student.php?myVar=<?php echo $prn ?>'>
-            <i class="bi bi-person"></i>
-            <span>My Profile</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-            <i class="bi bi-gear"></i>
-            <span>Account Settings</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-            <i class="bi bi-question-circle"></i>
-            <span>Need Help?</span>
-          </a>
         </li>
         <li>
           <hr class="dropdown-divider">
@@ -303,3 +264,6 @@ if ( $result->num_rows > 0)
 </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+
+<?php //echo isset($fullname) ? $fullname : 'Guest'; ?>
+<?php// echo isset($photo) ? '<img src="uploads/admin/'.$photo.'" alt="Profile" class="rounded">' : ''; ?>
