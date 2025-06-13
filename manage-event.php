@@ -48,16 +48,20 @@
               if ($result->num_rows > 0) {
                 $count = 1;
                 while ($row = $result->fetch_assoc()) {
+                  $title = $row["Title"];
+                  $des = $row["Description"];
+                  $date = $row["Date"];
+                  $form = $row["Form"];
                   echo '
                   <tr>
                     <td>' . $count++ . '</td>
-                    <td>' . $row["Title"] . '</td>
-                    <td>' . $row["Description"] . '</td>
-                    <td>' . $row["Date"] . '</td>
-                    <td><a href="'.$row["Form"] .'">Click Here!</a></td>
-                    <td>' . $row["Template"] . '</td>
-                    <td><a href="#" class="btn btn-warning">Update</a></td>
-                    <td><a href="#" class="btn btn-danger">Delete</a></td>
+                    <td>'.$title.'</td>
+                    <td>'.$des.'</td>
+                    <td>'.$date.'</td>
+                    <td><a href="'.$form.'">Click Here!</a></td>
+                    <td>' . $row["Template"] .'</td>
+                    <td><a href="manageEvent-edit.php?myVar='.$title.'&role='.$role.'" class="btn btn-warning">Update</a></td>
+                    <td><a href="manageEvent-delete.php?myVar='.$title.'&role='.$role.'" class="btn btn-danger">Delete</a></td>
                   </tr>
                   ';
                 }
