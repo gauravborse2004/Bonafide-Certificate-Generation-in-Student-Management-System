@@ -71,12 +71,12 @@
                                     <div class="row mt-2">  
                                         <div class="btn col-md-6">
                                             <div class="p-2 bg-secondary-light">
-                                                <a href="manageFaculty-edit.php?myVar='.$email.'">Update</a>
+                                                <a href="manageFaculty-edit.php?myVar='.$email.'&role=' . $role . '">Update</a>
                                             </div>
                                         </div>
                                         <div class="btn col-md-6">
                                             <div class="p-2 bg-secondary-light">
-                                                <a href="manageFaculty-delete.php?myVar='.$email.'">Delete</a>
+                                                <a href="manageFaculty-delete.php?myVar='.$email.'&role=' . $role . '">Delete</a>
                                             </div>
                                         </div>
                                     </div>

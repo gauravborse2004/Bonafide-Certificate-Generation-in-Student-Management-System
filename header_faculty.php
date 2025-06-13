@@ -257,7 +257,7 @@ if ( $result->num_rows > 0)
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href='manageView-faculty.php?myVar=<?php echo $user ?>'>
+          <a class="dropdown-item d-flex align-items-center" href='manageView-faculty.php?myVar=<?php echo $user ?>&role=<?php echo $role ?>'>
             <i class="bi bi-person"></i>
             <span>My Profile</span>
           </a>

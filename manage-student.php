@@ -75,14 +75,14 @@
                 <td>$address</td>
 
                 <td>
-                    <a href='manageView-student.php?myVar=$prn'>View</a>
+                    <a href='manageView-student.php?myVar=$prn&role=$role'>View</a>
                 </td>
                 
                 <td>
-                    <a href='manageStudent-edit.php?myVar=$prn'>Update</a>
+                    <a href='manageStudent-edit.php?myVar=$prn&role=$role'>Update</a>
                 </td>
                 <td>
-                    <a href='manageStudent-delete.php?myVar=$prn'>Delete</a>
+                    <a href='manageStudent-delete.php?myVar=$prn&role=$role'>Delete</a>
                 </td>
             </tr> 
             ";

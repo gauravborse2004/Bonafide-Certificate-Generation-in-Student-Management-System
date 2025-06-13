@@ -124,7 +124,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
                     echo "
                     <script type='text/javascript'>
                         alert('Something went wrong');
-                        window.location.href='home.php?role=" . urlencode($role) . "';
+                        window.location.href='add-student.php?role=" . urlencode($role) . "';
                     </script>
                     ";
                 }
@@ -134,7 +134,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
                 echo "
                 <script type='text/javascript'>
                     alert('Please fill the form');
-                    window.location.href='home.php?role=" . urlencode($role) . "';
+                    window.location.href='add-student.php?role=" . urlencode($role) . "';
                 </script>
                 ";
             }
@@ -144,7 +144,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
             echo "
                 <script type='text/javascript'>
                     alert('Please fill the form properly.');
-                    window.location.href='home.php?role=" . urlencode($role) . "';
+                    window.location.href='add-student.php?role=" . urlencode($role) . "';
                 </script>
             ";
         } 

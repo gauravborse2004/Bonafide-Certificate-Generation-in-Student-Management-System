@@ -72,13 +72,13 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
                 <td>$address</td>
                 
                 <td>
-                    <a href='manageView-faculty.php?myVar=$email'>View</a>
+                    <a href='manageView-faculty.php?myVar=$email&role=$role'>View</a>
                 </td>
                 <td>
-                    <a href='manageFaculty-edit.php?myVar=$email'>Update</a>
+                    <a href='manageFaculty-edit.php?myVar=$email&role=$role'>Update</a>
                 </td>
                 <td>
-                    <a href='manageFaculty-delete.php?myVar=$email'>Delete</a>
+                    <a href='manageFaculty-delete.php?myVar=$email&role=$role'>Delete</a>
                 </td>
             </tr> 
             ";

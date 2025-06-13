@@ -21,7 +21,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
         "
         <script type='text/javascript'>
             alert('Updated Successfully');
-            window.location.href='manage-faculty.php';
+            window.location.href='manage-faculty.php?myVar=$email &role=$role';
         </script>";
     }
     else
@@ -30,7 +30,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
         "
         <script type='text/javascript'>
             alert('Data Not Updated');
-            window.location.href='manage-faculty.php';
+            window.location.href='manage-faculty.php?myVar=$email &role=$role';
         </script>";
     }
 
