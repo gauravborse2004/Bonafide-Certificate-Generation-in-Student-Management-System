@@ -65,7 +65,7 @@ else{
             <div class="col-md-3"></div>
 
             <div class="col-md-6 col-sm-12 p-2 registration">
-                <form action="InsertBonafideRequest.php?role=<?php echo urlencode($role); ?>" method="POST" enctype="multipart/form-data">
+                <form action="insertBonafideRequest.php?role=<?php echo urlencode($role); ?>" method="POST" enctype="multipart/form-data">
 
                     <h3>Fill the Details Below</h3>
 

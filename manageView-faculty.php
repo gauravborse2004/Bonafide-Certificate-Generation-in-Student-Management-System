@@ -1,7 +1,21 @@
   <?php
   $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
-    include("header.php"); 
-    include("sidebar.php");
+    
+   if ($role == "faculty") 
+    {
+        include("header_faculty.php");
+        include("sidebar_faculty.php");
+    } 
+    elseif ($role == "student") 
+    {
+        include("header_student.php");
+        include("sidebar_student.php");
+    } 
+    else 
+    {
+        include("header.php");
+        include("sidebar.php");
+    }
   ?>
 
   <link rel="stylesheet" href="style.css">

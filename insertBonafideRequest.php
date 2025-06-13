@@ -65,7 +65,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Request Submitted Successfully');
-                        window.location.href='manageViewRequest-bonafide.php?role=" . urlencode($role) . "';
+                        window.location.href='home.php?role=" . urlencode($role) . "';
                     </script>
                     ";
                 }
