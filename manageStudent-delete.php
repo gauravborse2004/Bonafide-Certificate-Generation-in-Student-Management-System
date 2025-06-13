@@ -19,7 +19,7 @@
         echo "
         <script type='text/javascript'>
             alert('Data Deleted');
-            window.location.href='manage-student.php';
+            window.location.href='logout.php';
         </script>
         ";
     }

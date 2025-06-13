@@ -48,7 +48,7 @@
               <input type="text" class="form-control" placeholder="Enter link here" id="link" name="notification_link">
               <br>
               <button type="button" class="btn btn-primary" onclick="notificationForm()">Submit</button>
-              <a href="manage-notification.php" class="btn btn-outline-primary">View All</a>
+              <a href="manage-notification.php?role=<?php echo urlencode($role); ?>" class="btn btn-outline-primary">View All</a>
           </form>
        </div>
       </div>

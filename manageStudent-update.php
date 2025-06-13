@@ -21,7 +21,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
         "
         <script type='text/javascript'>
             alert('Updated Successfully');
-            window.location.href='manage-student.php';
+            window.location.href='manageView-student.php?myVar=$s_prn &role=$role';
         </script>";
     }
     else
@@ -30,7 +30,7 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
         "
         <script type='text/javascript'>
             alert('Data Not Updated');
-            window.location.href='manageStudent-edit.php';
+            window.location.href='manageStudent-edit.php?role=" . urlencode($role) . "';
         </script>";
     }
 

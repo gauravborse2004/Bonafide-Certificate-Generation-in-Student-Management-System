@@ -70,12 +70,13 @@
                                     <div class="row mt-2">  
                                         <div class="btn col-md-6">
                                             <div class="p-2 bg-secondary-light">
-                                                <a href="manageStudent-edit.php?myVar='.$prn.'">Update</a>
+                                                <a href="manageStudent-edit.php?myVar=' . $prn . '&role=' . $role . '">Update</a>
+
                                             </div>
                                         </div>
                                         <div class="btn col-md-6">
                                             <div class="p-2 bg-secondary-light">
-                                                <a href="manageStudent-delete.php?myVar='.$prn.'">Delete</a>
+                                                <a href="manageStudent-delete.php?myVar=' . $prn . '&role=' . $role . '">Delete</a>
                                             </div>
                                         </div>
                                     </div>
