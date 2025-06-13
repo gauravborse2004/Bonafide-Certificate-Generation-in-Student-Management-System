@@ -1,4 +1,5 @@
 <?php
+    $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("connection.php");
 
     if(isset($_POST["submit"]))
@@ -64,7 +65,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Request Submitted Successfully');
-                        window.location.href='manageViewRequest-bonafide.php';
+                        window.location.href='manageViewRequest-bonafide.php?role=" . urlencode($role) . "';
                     </script>
                     ";
                 }

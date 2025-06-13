@@ -1,5 +1,6 @@
 
   <?php 
+  $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("header.php"); 
     include("sidebar.php");
   ?>

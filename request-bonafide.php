@@ -1,4 +1,5 @@
 <?php
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 include("header.php");
    
 if($_GET["role"] == "faculty")
@@ -64,7 +65,7 @@ else{
             <div class="col-md-3"></div>
 
             <div class="col-md-6 col-sm-12 p-2 registration">
-                <form action="InsertBonafideRequest.php" method="POST" enctype="multipart/form-data">
+                <form action="InsertBonafideRequest.php?role=<?php echo urlencode($role); ?>" method="POST" enctype="multipart/form-data">
 
                     <h3>Fill the Details Below</h3>
 

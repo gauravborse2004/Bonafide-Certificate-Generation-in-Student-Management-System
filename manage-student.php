@@ -1,4 +1,5 @@
  <?php 
+ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("header.php");
    
     if($_GET["role"] == "faculty")

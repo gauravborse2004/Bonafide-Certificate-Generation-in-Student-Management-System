@@ -1,4 +1,5 @@
 <?php
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("connection.php");
 
     if(isset($_POST["submit"]))
@@ -108,7 +109,7 @@
                         echo "
                             <script type='text/javascript'>
                                 alert('Registration Successful');
-                                window.location.href='manage-student.php';
+                                window.location.href='manage-student.php?role=" . urlencode($role) . "';
                             </script>
                         ";
                     }
@@ -123,7 +124,7 @@
                     echo "
                     <script type='text/javascript'>
                         alert('Something went wrong');
-                        window.location.href='home.php.html';
+                        window.location.href='home.php?role=" . urlencode($role) . "';
                     </script>
                     ";
                 }
@@ -133,7 +134,7 @@
                 echo "
                 <script type='text/javascript'>
                     alert('Please fill the form');
-                    window.location.href='home.php.html';
+                    window.location.href='home.php?role=" . urlencode($role) . "';
                 </script>
                 ";
             }
@@ -143,7 +144,7 @@
             echo "
                 <script type='text/javascript'>
                     alert('Please fill the form properly.');
-                    window.location.href='home.php.html';
+                    window.location.href='home.php?role=" . urlencode($role) . "';
                 </script>
             ";
         } 

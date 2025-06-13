@@ -1,5 +1,5 @@
 <?php
-// Delete notification
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 if (isset($_POST['delete_notification'])) {
     include("connection.php");
 

@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-
+    $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("connection.php");
 
     $email = $_GET["myVar"];

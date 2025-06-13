@@ -1,4 +1,5 @@
 <?php
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 include("header.php"); 
 include("sidebar.php");
 include("connection.php");
@@ -51,7 +52,7 @@ else{
             <div class="col-md-3"></div>
 
             <div class="col-md-6 col-sm-12 p-2 registration">
-                <form action="manageStudent-update.php" method="POST" enctype="multipart/form-data">
+                <form action="manageStudent-update.php?role=<?php echo urlencode($role); ?>" method="POST" enctype="multipart/form-data">
 
                     <h3>Fill the Details Below</h3>
 

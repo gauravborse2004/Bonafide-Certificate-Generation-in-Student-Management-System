@@ -1,4 +1,5 @@
 <?php
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 include("connection.php");
 require_once 'fpdf/fpdf.php';
 
@@ -25,7 +26,7 @@ if (!$row) {
     echo "
     <script type='text/javascript'>
         alert('Request not found');
-        window.location.href='home.php';
+        window.location.href='home.php?role=" . urlencode($role) . "';
     </script>
     ";
 }   
@@ -35,7 +36,7 @@ if($row["Request"] !== "Approved")
     echo "
     <script type='text/javascript'>
         alert('Bonafide certificate is not Approved yet!');
-        window.location.href='home.php';
+        window.location.href='home.php?role=" . urlencode($role) . "';
     </script>
     ";
 }

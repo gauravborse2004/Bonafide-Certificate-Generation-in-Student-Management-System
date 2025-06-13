@@ -1,4 +1,5 @@
 <?php
+$role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("connection.php");
 
     $s_prn = trim($_POST["prn"]);

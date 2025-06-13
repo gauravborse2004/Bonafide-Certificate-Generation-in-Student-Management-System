@@ -1,5 +1,6 @@
 
   <?php 
+  $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     include("header.php");
    
     if($_GET["role"] == "faculty")
@@ -44,7 +45,7 @@
                         <div class="registration mx-auto p-2">
                             <h1><b>Student Registration Form</b></h1>
                         
-                            <form action="insertStudent.php" method="POST"  enctype="multipart/form-data">
+                            <form action="insertStudent.php?role=<?php echo urlencode($role); ?>" method="POST"  enctype="multipart/form-data">
 
                                 <input type="number" name="prn" placeholder="Enter Your PRN" class="form-control mt-2" required >
 
