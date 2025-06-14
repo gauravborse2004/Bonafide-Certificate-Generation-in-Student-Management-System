@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
             if ($myQuery->execute()) {
                 echo "
                 <script>
-                    alert('Event Added Successfully');
+                    alert('Gallery/Photo Added Successfully');
                     window.location.href='manage-gallery.php?role=" . urlencode($role) . "';
                 </script>";
             } else {
