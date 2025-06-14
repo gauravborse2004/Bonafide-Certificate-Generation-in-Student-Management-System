@@ -48,7 +48,7 @@ $role = "faculty";
       </ul>
     </li><!-- End Forms Nav -->
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#gallery-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-layout-text-window-reverse"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -64,9 +64,9 @@ $role = "faculty";
           </a>
         </li>
       </ul>
-    </li><!-- End Tables Nav -->
+    </li>End Tables Nav -->
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-menu-button-wide"></i><span>Notification</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -82,7 +82,7 @@ $role = "faculty";
           </a>
         </li>
       </ul>
-    </li>
+    </li> -->
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#component-nav" data-bs-toggle="collapse" href="#">
