@@ -79,8 +79,8 @@ else
                     }
                     else{
                     echo'
-                    <td><a href="manageBonafide-update.php?myVar='. $row["Name"] .'" class="btn btn-warning">Approve</a></td>
-                    <td><a href="manageBonafide-reject.php?myVar='. $row["Name"] .'" class="btn btn-danger">Reject</a></td>';
+                    <td><a href="manageBonafide-update.php?myVar='. $row["Name"] .'&role='.$role.'" class="btn btn-warning">Approve</a></td>
+                    <td><a href="manageBonafide-reject.php?myVar='. $row["Name"] .'&role='.$role.'" class="btn btn-danger">Reject</a></td>';
                     }
 
                     echo'

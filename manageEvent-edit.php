@@ -77,7 +77,7 @@ else{
                     <br>
 
                     <label for="">Add Event Form Link</label>
-                    <input type="text" name="regform" class="form-control" value="<?php echo $form; ?>">
+                    <input type="text" name="form" class="form-control" value="<?php echo $form; ?>">
                     <br>
 
                     <div class="row">

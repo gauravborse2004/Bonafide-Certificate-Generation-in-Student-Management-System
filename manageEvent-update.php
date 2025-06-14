@@ -5,9 +5,9 @@ $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
     $title = trim($_POST["title"]);
     $des = trim($_POST["desc"]);
     $date = trim($_POST["date"]);
-    $form = trim($_POST["regform"]);
+    $form = trim($_POST["form"]);
 
-    $myQuery = "UPDATE event SET Description='".$des."', Date='".$date."', Form='".$regform."' WHERE Title='".$title."'";
+    $myQuery = "UPDATE event SET Description='".$des."', Date='".$date."', Form='".$form."' WHERE Title='".$title."'";
 
     if($conn->query($myQuery))
     {

@@ -15,7 +15,7 @@ $myQuery = "UPDATE requestbonafide SET Request = '".$request."' WHERE Name='".$m
         "
         <script type='text/javascript'>
             alert('Updated Successfully');
-            window.location.href='manageViewRequest-bonafide.php';
+            window.location.href='manageViewRequest-bonafide.php?role=" . urlencode($role) . "';
         </script>";
     }
     else
@@ -24,7 +24,7 @@ $myQuery = "UPDATE requestbonafide SET Request = '".$request."' WHERE Name='".$m
         "
         <script type='text/javascript'>
             alert('Data Not Updated');
-            window.location.href='manageViewRequest-bonafide.php';
+            window.location.href='manageViewRequest-bonafide.php?role=" . urlencode($role) . "';
         </script>";
     }
 
