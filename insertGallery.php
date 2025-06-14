@@ -2,52 +2,65 @@
 $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 include("connection.php");
 
-$notification_title = $_POST["notification_title"]; 
-$notification_link = $_POST["notification_link"];
+if (isset($_POST["submit"])) {
+    $target_dir = "uploads/gallery/";
+    $uniqueName = uniqid() . "_" . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $target_dir . $uniqueName;
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-// File upload handling
-$targetDirectory = "uploads/"; // Change this directory as per your requirement
-$targetFile = $targetDirectory . basename($_FILES["notification_doc"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    // Validate image
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if ($check === false) {
+        $uploadOk = 0;
+    }
 
-// Check if file already exists
-if (file_exists($targetFile)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-}
+    if (file_exists($target_file)) {
+        $uploadOk = 0;
+    }
 
-// Check file size, you can adjust as per your requirements
-if ($_FILES["notification_doc"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
+    if ($_FILES["fileToUpload"]["size"] > 5000000) { // 500 KB limit
+        $uploadOk = 0;
+    }
 
-// Allow only certain file formats, you can adjust as per your requirements
-if($imageFileType != "pdf" && $imageFileType != "doc" && $imageFileType != "docx") {
-    echo "Sorry, only PDF, DOC, DOCX files are allowed.";
-    $uploadOk = 0;
-}
+    if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+        $uploadOk = 0;
+    }
 
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["notification_doc"]["tmp_name"], $targetFile)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["notification_doc"]["name"])). " has been uploaded.";
-        
-        // Insert data into the database
-        $sql = "INSERT INTO notification (notification_title, notification_doc, notification_link) VALUES ('$notification_title', '$targetFile', '$notification_link')"; 
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            $photo = $uniqueName;
+            $title = $_POST["title"];
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Record inserted successfully.";
+            $myQuery = $conn->prepare("INSERT INTO gallery (Title, Photos) VALUES (?, ?)");
+            $myQuery->bind_param("ss", $title, $photo);
+
+            if ($myQuery->execute()) {
+                echo "
+                <script>
+                    alert('Event Added Successfully');
+                    window.location.href='manage-gallery.php?role=" . urlencode($role) . "';
+                </script>";
+            } else {
+                echo "
+                <script>
+                    alert('Something went wrong');
+                    window.location.href='add-gallery.php?role=" . urlencode($role) . "';
+                </script>";
+            }
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "
+            <script>
+                alert('Error uploading file.');
+                window.location.href='add-gallery.php?role=" . urlencode($role) . "';
+            </script>";
         }
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "
+        <script>
+            alert('Please fill the form properly.');
+            window.location.href='add-gallery.php?role=" . urlencode($role) . "';
+        </script>";
     }
 }
-
 ?>
