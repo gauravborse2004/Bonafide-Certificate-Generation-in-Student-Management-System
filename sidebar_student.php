@@ -31,7 +31,7 @@ $role = "student";
       </ul>
     </li><!-- End Forms Nav -->
 
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#gallery-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-layout-text-window-reverse"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -47,7 +47,7 @@ $role = "student";
           </a>
         </li>
       </ul>
-    </li> -->
+    </li>
 
     <!-- <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -55,12 +55,12 @@ $role = "student";
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="add-notification.php?role=<?php echo $role ?>">
+          <a href="add-notification.php">
             <i class="bi bi-circle"></i><span>Add notification</span>
           </a>
         </li>
         <li>
-          <a href="manage-notification.php?role=<?php echo $role ?>">
+          <a href="manage-notification.php">
             <i class="bi bi-circle"></i><span>Manage notification</span>
           </a>
         </li>
