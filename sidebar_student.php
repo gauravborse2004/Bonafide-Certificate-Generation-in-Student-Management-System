@@ -23,11 +23,6 @@ $role = "student";
             <i class="bi bi-circle"></i><span>Add-events</span>
           </a>
         </li>
-        <li>
-          <a href="manage-event.php?role=<?php echo $role ?>">
-            <i class="bi bi-circle"></i><span>Manage-events</span>
-          </a>
-        </li>
       </ul>
     </li><!-- End Forms Nav -->
 
@@ -78,7 +73,7 @@ $role = "student";
           </a>
         </li>
         <li>
-          <a href="generate-bonafide.php">
+          <a href="generate-bonafide.php?role=<?php echo $role ?>">
             <i class="bi bi-circle"></i><span>Download</span>
           </a>
         </li>
