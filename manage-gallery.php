@@ -22,6 +22,7 @@ if ($role == "faculty") {
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     .gallery-card {
         border: 1px solid #ddd;
@@ -42,6 +43,7 @@ if ($role == "faculty") {
         object-fit: contain;
         background-color: #f9f9f9;
         padding: 10px;
+        cursor: pointer;
     }
 
     .gallery-title {
@@ -53,6 +55,12 @@ if ($role == "faculty") {
 
     .btn-sm {
         margin-bottom: 10px;
+    }
+
+    .modal-img {
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
     }
   </style>
 </head>
@@ -70,11 +78,12 @@ if ($role == "faculty") {
             while ($row = $result->fetch_assoc()) {
                 $title = $row["Title"];
                 $photo = $row["Photos"];
+                $imgPath = "uploads/gallery/" . $photo;
 
                 echo '
                 <div class="col-md-3 mb-4">
                     <div class="gallery-card text-center p-3">
-                        <img src="uploads/gallery/'.$photo.'" alt="'.$title.'">
+                        <img src="'.$imgPath.'" alt="'.$title.'" onclick="openModal(\''.$imgPath.'\')">
                         <div class="gallery-title">'.$title.'</div>
                         <a href="manageGallery-delete.php?myVar='.$title.'&role='.$role.'" class="btn btn-danger btn-sm">Delete</a>
                     </div>
@@ -88,8 +97,32 @@ if ($role == "faculty") {
   </div>
 </main>
 
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Full View</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" class="modal-img" src="" alt="Full Size">
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script to open modal -->
+<script>
+  function openModal(imageSrc) {
+    document.getElementById('modalImage').src = imageSrc;
+    var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    myModal.show();
+  }
+</script>
 
 </body>
 </html>
