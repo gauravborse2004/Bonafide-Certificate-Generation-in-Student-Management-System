@@ -1,20 +1,13 @@
 <?php 
-include("header.php");
-
 $role = isset($_GET["role"]) ? trim($_GET["role"]) : "admin";
 
-if ($role == "faculty") 
-{
+if ($role == "faculty") {
     include("header_faculty.php");
     include("sidebar_faculty.php");
-} 
-elseif ($role == "student") 
-{
+} elseif ($role == "student") {
     include("header_student.php");
     include("sidebar_student.php");
-} 
-else 
-{
+} else {
     include("header.php");
     include("sidebar.php");
 }
@@ -28,28 +21,23 @@ else
                 <h3 class="text-center">Add Events</h3>
                 <form id="addEventForm" action="insertEvent.php?role=<?php echo urlencode($role); ?>" method="POST" enctype="multipart/form-data">
 
-                    <label for="">Add Event Title</label>
-                    <input type="text" name="title" class="form-control" required>
-                    <br>
+                    <label>Add Event Title</label>
+                    <input type="text" name="title" class="form-control" required><br>
 
-                    <label for="">Event Description</label>
-                    <textarea name="desc" rows="5" class="form-control" required></textarea>
-                    <br>
+                    <label>Event Description</label>
+                    <textarea name="desc" rows="5" class="form-control" required></textarea><br>
 
-                    <label for="">Event Date</label>
-                    <input name="dob" type="date" class="form-control" required>
-                    <br>
+                    <label>Event Date</label>
+                    <input name="dob" type="date" class="form-control" required><br>
 
-                    <label for="">Add Event Form Link</label>
-                    <input type="text" name="reg" class="form-control" required>
-                    <br>
+                    <label>Add Event Form Link</label>
+                    <input type="text" name="reg" class="form-control" required><br>
 
-                    <label for="">Event Template</label>
-                    <input type="file" name="fileToUpload" class="form-control" required>
-                    <br>
+                    <label>Event Template</label>
+                    <input type="file" name="fileToUpload" class="form-control" required><br>
 
                     <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-                    <a href="manage-event.php?role=<?php echo urlencode($role); ?>" class="btn btn-outline-primary">View All</a>
+                    <!-- <a href="manage-event.php?role=<?php// echo urlencode($role); ?>" class="btn btn-outline-primary">View All</a> -->
                 </form>
             </div>
         </div>

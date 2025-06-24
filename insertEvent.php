@@ -42,7 +42,7 @@ if (isset($_POST["submit"])) {
                 echo "
                 <script>
                     alert('Event Added Successfully');
-                    window.location.href='manage-event.php?role=" . urlencode($role) . "';
+                    window.location.href='home.php?role=" . urlencode($role) . "';
                 </script>";
             } else {
                 echo "

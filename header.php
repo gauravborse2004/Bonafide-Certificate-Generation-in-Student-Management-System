@@ -76,8 +76,8 @@ if ( $result->num_rows > 0)
 
 <div class="d-flex align-items-center justify-content-between">
   <a href="index.html" class="logo d-flex align-items-center">
-    <img src="images/clg-logo.png" alt="" class="m-3">
-    <span class="d-none d-lg-block">AI&DS Dept.</span>
+    <img src="images/Logo.png" alt="" class="m-3">
+    <span class="d-none d-lg-block">Team TechSpire</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -93,10 +93,10 @@ if ( $result->num_rows > 0)
 
     <li class="nav-item dropdown">
 
-      <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+      <!-- <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
         <i class="bi bi-bell"></i>
         <span class="badge bg-primary badge-number">4</span>
-      </a><!-- End Notification Icon -->
+      </a>End Notification Icon -->
 
       <!-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
         <li class="dropdown-header">
@@ -164,14 +164,14 @@ if ( $result->num_rows > 0)
 
       </ul>End Notification Dropdown Items -->
 
-    </li><!-- End Notification Nav -->
+    <!-- </li>End Notification Nav -->
 
-    <li class="nav-item dropdown">
+    <!-- <li class="nav-item dropdown">
 
       <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
         <i class="bi bi-chat-left-text"></i>
         <span class="badge bg-success badge-number">3</span>
-      </a><!-- End Messages Icon -->
+      </a>End Messages Icon -->
 
       <!-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
         <li class="dropdown-header">

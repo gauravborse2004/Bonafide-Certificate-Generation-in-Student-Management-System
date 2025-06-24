@@ -1,107 +1,70 @@
 <!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
+<aside id="sidebar" class="sidebar bg-light shadow-sm" style="min-height: 100vh;">
 
-  <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
-      <a class="nav-link " href="home.php">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li><!-- End Dashboard Nav -->
+  <ul class="sidebar-nav list-unstyled pt-3" id="sidebar-nav">
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Faculty</span><i class="bi bi-chevron-down ms-auto"></i>
+    <li class="nav-item mb-2">
+      <a class="nav-link text-dark fw-semibold d-flex align-items-center gap-2" href="home.php">
+        <i class="bi bi-grid"></i><span>Dashboard</span>
       </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="add-faculty.php">
-            <i class="bi bi-circle"></i><span>Add faculty</span>
-          </a>
-        </li>
-        <li>
-          <a href="manage-faculty.php">
-            <i class="bi bi-circle"></i><span>Manage faculty</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Tables Nav -->
+    </li>
 
-     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#table-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Student</span><i class="bi bi-chevron-down ms-auto"></i>
+    <!-- Faculty -->
+    <li class="nav-item mb-2">
+      <a class="nav-link collapsed text-dark d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#faculty-nav">
+        <i class="bi bi-person-lines-fill"></i><span>Faculty</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="table-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="add-student.php">
-            <i class="bi bi-circle"></i><span>Add Student</span>
-          </a>
-        </li>
-        <li>
-          <a href="manage-student.php">
-            <i class="bi bi-circle"></i><span>Manage Student</span>
-          </a>
-        </li>
+      <ul id="faculty-nav" class="nav-content collapse ps-4" data-bs-parent="#sidebar-nav">
+        <li><a href="add-faculty.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Add Faculty</a></li>
+        <li><a href="manage-faculty.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Manage Faculty</a></li>
       </ul>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Events</span><i class="bi bi-chevron-down ms-auto"></i>
+    <!-- Student -->
+    <li class="nav-item mb-2">
+      <a class="nav-link collapsed text-dark d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#student-nav">
+        <i class="bi bi-people"></i><span>Student</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="add-event.php">
-            <i class="bi bi-circle"></i><span>Add-events</span>
-          </a>
-        </li>
-        <li>
-          <a href="manage-event.php">
-            <i class="bi bi-circle"></i><span>Manage-events</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Forms Nav -->
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#gallery-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="gallery-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="add-gallery.php">
-            <i class="bi bi-circle"></i><span>Add gallery</span>
-          </a>
-        </li>
-        <li>
-          <a href="manage-gallery.php">
-            <i class="bi bi-circle"></i><span>Manage gallery</span>
-          </a>
-        </li>
+      <ul id="student-nav" class="nav-content collapse ps-4" data-bs-parent="#sidebar-nav">
+        <li><a href="add-student.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Add Student</a></li>
+        <li><a href="manage-student.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Manage Student</a></li>
       </ul>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#component-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span>Bonafide</span><i class="bi bi-chevron-down ms-auto"></i>
+    <!-- Events -->
+    <li class="nav-item mb-2">
+      <a class="nav-link collapsed text-dark d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#event-nav">
+        <i class="bi bi-calendar-event"></i><span>Events</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="component-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="request-bonafide.php">
-            <i class="bi bi-circle"></i><span>Request Bonafide</span>
-          </a>
-        </li>
-        <li>
-          <a href="manageViewRequest-bonafide.php">
-            <i class="bi bi-circle"></i><span>View Request</span>
-          </a>
-        </li>
-        <li>
-          <a href="generate-bonafide.php">
-            <i class="bi bi-circle"></i><span>Download</span>
-          </a>
-        </li>
+      <ul id="event-nav" class="nav-content collapse ps-4" data-bs-parent="#sidebar-nav">
+        <li><a href="add-event.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Add Events</a></li>
+        <li><a href="manage-event.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Manage Events</a></li>
       </ul>
     </li>
+
+    <!-- Gallery -->
+    <li class="nav-item mb-2">
+      <a class="nav-link collapsed text-dark d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#gallery-nav">
+        <i class="bi bi-images"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="gallery-nav" class="nav-content collapse ps-4" data-bs-parent="#sidebar-nav">
+        <li><a href="add-gallery.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Add Gallery</a></li>
+        <li><a href="manage-gallery.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Manage Gallery</a></li>
+      </ul>
+    </li>
+
+    <!-- Bonafide -->
+    <li class="nav-item mb-2">
+      <a class="nav-link collapsed text-dark d-flex align-items-center gap-2" data-bs-toggle="collapse" href="#bonafide-nav">
+        <i class="bi bi-file-earmark-text"></i><span>Bonafide</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="bonafide-nav" class="nav-content collapse ps-4" data-bs-parent="#sidebar-nav">
+        <li><a href="request-bonafide.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Request Bonafide</a></li>
+        <li><a href="manageViewRequest-bonafide.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> View Request</a></li>
+        <li><a href="generate-bonafide.php" class="text-decoration-none d-block py-1"><i class="bi bi-circle"></i> Download</a></li>
+      </ul>
+    </li>
+
   </ul>
-</aside><!-- End Sidebar-->
+</aside>
+<!-- End Sidebar -->
