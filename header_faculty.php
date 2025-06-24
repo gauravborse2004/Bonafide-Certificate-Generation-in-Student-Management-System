@@ -40,7 +40,7 @@ if ( $result->num_rows > 0)
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="images/clg-logo.png" rel="icon">
+  <link href="images/Logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
